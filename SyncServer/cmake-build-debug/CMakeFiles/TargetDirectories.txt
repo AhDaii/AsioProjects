@@ -1,0 +1,3 @@
+/Users/hunz1/Documents/AsioProjects.nosync/SyncServer/cmake-build-debug/CMakeFiles/SyncServer.dir
+/Users/hunz1/Documents/AsioProjects.nosync/SyncServer/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/hunz1/Documents/AsioProjects.nosync/SyncServer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
