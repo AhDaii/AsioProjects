@@ -51,6 +51,9 @@ public:
 
     void ReadFromSocket();
     void ReadCallBack(const boost::system::error_code& ec, std::size_t bytes_transferred);
+
+    void ReadAllFromSocket();
+    void ReadAllCallBack(const boost::system::error_code& ec, std::size_t bytes_transferred);
 private:
     std::shared_ptr<asio::ip::tcp::socket> _socket;
     std::shared_ptr<MsgNode> _send_node;
