@@ -1,0 +1,4 @@
+# ninja log v5
+12	865	1688741087178207566	CMakeFiles/AsycServer.dir/main.cpp.o	de0b6e28664304b2
+11	987	1688741144825166650	CMakeFiles/AsycServer.dir/src/Session.cpp.o	ffc7f4be73d54322
+987	1025	1688741144867272123	AsycServer	cc6c4d846d2c3c82
