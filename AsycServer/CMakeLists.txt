@@ -15,6 +15,8 @@ if(NOT Boost_FOUND)
     message(FATAL_ERROR "Could not find boost!")
 endif()
 
+aux_source_directory(src _SOURCES)
+
 include_directories(include)
 
-add_executable(AsycServer main.cpp src/Session.cpp)
+add_executable(AsycServer main.cpp ${_SOURCES})

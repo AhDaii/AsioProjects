@@ -56,8 +56,15 @@ build CMakeFiles/AsycServer.dir/main.cpp.o: CXX_COMPILER__AsycServer_Debug /User
   OBJECT_DIR = CMakeFiles/AsycServer.dir
   OBJECT_FILE_DIR = CMakeFiles/AsycServer.dir
 
-build CMakeFiles/AsycServer.dir/src/Session.cpp.o: CXX_COMPILER__AsycServer_Debug /Users/hunz1/Documents/AsioProjects.nosync/AsycServer/src/Session.cpp || cmake_object_order_depends_target_AsycServer
-  DEP_FILE = CMakeFiles/AsycServer.dir/src/Session.cpp.o.d
+build CMakeFiles/AsycServer.dir/src/CServer.cpp.o: CXX_COMPILER__AsycServer_Debug /Users/hunz1/Documents/AsioProjects.nosync/AsycServer/src/CServer.cpp || cmake_object_order_depends_target_AsycServer
+  DEP_FILE = CMakeFiles/AsycServer.dir/src/CServer.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics -std=gnu++20
+  INCLUDES = -I/opt/homebrew/Cellar/boost/1.82.0_1/include -I/Users/hunz1/Documents/AsioProjects.nosync/AsycServer/include
+  OBJECT_DIR = CMakeFiles/AsycServer.dir
+  OBJECT_FILE_DIR = CMakeFiles/AsycServer.dir/src
+
+build CMakeFiles/AsycServer.dir/src/CSession.cpp.o: CXX_COMPILER__AsycServer_Debug /Users/hunz1/Documents/AsioProjects.nosync/AsycServer/src/CSession.cpp || cmake_object_order_depends_target_AsycServer
+  DEP_FILE = CMakeFiles/AsycServer.dir/src/CSession.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics -std=gnu++20
   INCLUDES = -I/opt/homebrew/Cellar/boost/1.82.0_1/include -I/Users/hunz1/Documents/AsioProjects.nosync/AsycServer/include
   OBJECT_DIR = CMakeFiles/AsycServer.dir
@@ -71,7 +78,7 @@ build CMakeFiles/AsycServer.dir/src/Session.cpp.o: CXX_COMPILER__AsycServer_Debu
 #############################################
 # Link the executable AsycServer
 
-build AsycServer: CXX_EXECUTABLE_LINKER__AsycServer_Debug CMakeFiles/AsycServer.dir/main.cpp.o CMakeFiles/AsycServer.dir/src/Session.cpp.o
+build AsycServer: CXX_EXECUTABLE_LINKER__AsycServer_Debug CMakeFiles/AsycServer.dir/main.cpp.o CMakeFiles/AsycServer.dir/src/CServer.cpp.o CMakeFiles/AsycServer.dir/src/CSession.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
   OBJECT_DIR = CMakeFiles/AsycServer.dir
   POST_BUILD = :
