@@ -1,5 +1,0 @@
-"/Users/hunz1/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.9161.40/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/hunz1/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.9161.40/CLion.app/Contents/bin/ninja/mac/ninja" -G Ninja -S /Users/hunz1/Documents/AsioProjects.nosync/SyncServer -B /Users/hunz1/Documents/AsioProjects.nosync/SyncServer/cmake-build-debug
--- Found Boost: /opt/homebrew/Cellar/boost/1.82.0_1/lib/cmake/Boost-1.82.0/BoostConfig.cmake (found suitable version "1.82.0", minimum required is "1.82.0") found components: system filesystem 
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/hunz1/Documents/AsioProjects.nosync/SyncServer/cmake-build-debug
