@@ -16,13 +16,27 @@ using boost::asio::ip::tcp;
 
 class CServer;
 
+#define HEAD_LENGTH 2
+#define MAX_LENGTH (1024*2)
+
 class MsgNode {
     friend class CSession;
 
 public:
-    MsgNode(char *msg, int max_len) {
-        _data = new char[max_len];
-        memcpy(_data, msg, max_len);
+    MsgNode(char *msg, short max_len) : _total_len(max_len + HEAD_LENGTH), _cur_len(0) {
+        _data = new char[_total_len + 1];
+        memcpy(_data, &max_len, HEAD_LENGTH);
+        memcpy(_data + HEAD_LENGTH, msg, max_len);
+        _data[_total_len] = 0;
+    }
+
+    MsgNode(short max_len) : _total_len(max_len), _cur_len(0) {
+        _data = new char[_total_len + 1];
+    }
+
+    void Clear() {
+        ::memset(_data, 0, _total_len);
+        _cur_len = 0;
     }
 
     ~MsgNode() {
@@ -30,23 +44,23 @@ public:
     }
 
 private:
-    int _cur_len;
-    int _max_len;
+    short _cur_len;
+//    int _max_len;
+    short _total_len;
     char *_data;
 };
 
 class CSession : public std::enable_shared_from_this<CSession> {
 public:
-    CSession(boost::asio::io_context &ioc, CServer *server) : _socket(ioc), _server(server) {
-        boost::uuids::uuid a_uuid = boost::uuids::random_generator()();
-        _uuid = boost::uuids::to_string(a_uuid);
-    }
+    CSession(boost::asio::io_context &ioc, CServer *server);
 
     tcp::socket &Socket() {
         return _socket;
     }
 
     void Start();
+
+    void Close();
 
     std::string &GetUuid();
 
@@ -62,15 +76,22 @@ private:
 
     void HandleWrite(const boost::system::error_code &ec, std::shared_ptr<CSession> _self_shared);
 
+    void PrintRecvData(char* data, int length);
+
     tcp::socket _socket;
-    enum {
-        max_length = 1024
-    };
-    char _data[max_length];
+
+    char _data[MAX_LENGTH];
     CServer *_server;
     std::string _uuid;
     std::queue<std::shared_ptr<MsgNode>> _send_que;
     std::mutex _send_lock;
+    bool _b_close;
+
+    // 接收到的消息结构
+    std::shared_ptr<MsgNode> _recv_msg_node;
+    bool _b_head_parse;
+    // 接收到的头部结构
+    std::shared_ptr<MsgNode> _recv_head_node;
 };
 
 
