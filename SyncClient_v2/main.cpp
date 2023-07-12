@@ -24,9 +24,10 @@ int main() {
             while (true) {
                 this_thread::sleep_for(2ms);
                 const char* request = "Hello World!";
-                size_t request_len = strlen(request);
+                short request_len = strlen(request);
                 char send_data[MAX_LENGTH] = {0};
-                memcpy(send_data, &request_len, HEAD_LENGTH);
+                short request_len_host = boost::asio::detail::socket_ops::host_to_network_short(request_len);
+                memcpy(send_data, &request_len_host, HEAD_LENGTH);
                 memcpy(send_data + HEAD_LENGTH, request, request_len);
                 boost::asio::write(socket, boost::asio::buffer(send_data, request_len + HEAD_LENGTH));
             }
@@ -40,6 +41,7 @@ int main() {
                 boost::asio::read(socket, boost::asio::buffer(reply_head, HEAD_LENGTH));
                 short msg_len = 0;
                 memcpy(&msg_len, reply_head, HEAD_LENGTH);
+                msg_len = boost::asio::detail::socket_ops::network_to_host_short(msg_len);
                 char reply_msg[MAX_LENGTH] = {0};
                 boost::asio::read(socket, boost::asio::buffer(reply_msg, msg_len));
                 cout << "Reply is: ";

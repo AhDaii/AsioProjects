@@ -11,13 +11,11 @@
 #include <iostream>
 #include <unordered_map>
 #include <queue>
+#include "const.h"
 
 using boost::asio::ip::tcp;
 
 class CServer;
-
-#define HEAD_LENGTH 2
-#define MAX_LENGTH (1024*2)
 
 class MsgNode {
     friend class CSession;
@@ -25,7 +23,9 @@ class MsgNode {
 public:
     MsgNode(char *msg, short max_len) : _total_len(max_len + HEAD_LENGTH), _cur_len(0) {
         _data = new char[_total_len + 1];
-        memcpy(_data, &max_len, HEAD_LENGTH);
+        // 字节序处理
+        short max_len_host = boost::asio::detail::socket_ops::host_to_network_short(max_len);
+        memcpy(_data, &max_len_host, HEAD_LENGTH);
         memcpy(_data + HEAD_LENGTH, msg, max_len);
         _data[_total_len] = 0;
     }
