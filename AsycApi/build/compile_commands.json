@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/hunz1/Documents/AsioProjects.nosync/AsycApi/build",
+  "command": "/opt/homebrew/bin/aarch64-apple-darwin22-g++-13 -I/opt/homebrew/Cellar/boost/1.82.0_1/include -I/Users/hunz1/Documents/AsioProjects.nosync/AsycApi/include -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/AsycApi.dir/main.cpp.o -c /Users/hunz1/Documents/AsioProjects.nosync/AsycApi/main.cpp",
+  "file": "/Users/hunz1/Documents/AsioProjects.nosync/AsycApi/main.cpp",
+  "output": "CMakeFiles/AsycApi.dir/main.cpp.o"
+}
+]
