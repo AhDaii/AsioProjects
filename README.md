@@ -17,3 +17,4 @@
 - JsonCPP传输数据
   - [服务端](https://github.com/AhDaii/AsioProject/tree/master/AsycServer_JsonCPP)
   - [客户端](https://github.com/AhDaii/AsioProject/tree/master/SyncClient_JsonCPP)
+- [简易方法解决粘包问题](https://github.com/AhDaii/AsioProject/tree/master/AsycServer_v2)
