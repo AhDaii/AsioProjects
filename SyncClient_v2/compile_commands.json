@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/Users/hunz1/Documents/AsioProjects.nosync/SyncClient_v2/cmake_build_Debug",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/opt/homebrew/Cellar/boost/1.82.0_1/include -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/SyncClient_v2.dir/main.cpp.o -c /Users/hunz1/Documents/AsioProjects.nosync/SyncClient_v2/main.cpp",
-  "file": "/Users/hunz1/Documents/AsioProjects.nosync/SyncClient_v2/main.cpp",
-  "output": "CMakeFiles/SyncClient_v2.dir/main.cpp.o"
-}
-]
