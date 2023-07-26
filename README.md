@@ -18,3 +18,6 @@
   - [服务端](https://github.com/AhDaii/AsioProject/tree/master/AsycServer_JsonCPP)
   - [客户端](https://github.com/AhDaii/AsioProject/tree/master/SyncClient_JsonCPP)
 - [简易方法解决粘包问题](https://github.com/AhDaii/AsioProject/tree/master/AsycServer_v2)
+- 消息格式更改为标准的TLV格式
+  - [服务端](https://github.com/AhDaii/AsioProject/tree/master/AsycServer_Logic)
+  - [客户端](https://github.com/AhDaii/AsioProject/tree/master/SyncClient_JsonCPP_v2)
