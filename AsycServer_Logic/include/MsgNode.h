@@ -22,7 +22,7 @@ public:
 
     void Clear() {
         ::memset(_data, 0, _total_len);
-        _cur_len = 0;
+
     }
 
     short _cur_len;
