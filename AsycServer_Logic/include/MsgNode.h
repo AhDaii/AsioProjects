@@ -1,12 +1,10 @@
 #ifndef ASYCSERVER_MsgNode_H
 #define ASYCSERVER_MsgNode_H
 
-#include "boost/asio/detail/socket_ops.hpp"
-#include "const.h"
 #include <cstring>
 #include <iostream>
 using namespace std;
-
+class LogicSystem;
 class MsgNode {
 public:
     MsgNode(short max_len)
@@ -22,7 +20,6 @@ public:
 
     void Clear() {
         ::memset(_data, 0, _total_len);
-
     }
 
     short _cur_len;
@@ -31,6 +28,8 @@ public:
 };
 
 class RecvNode : public MsgNode {
+    friend class LogicSystem;
+
 public:
     RecvNode(short max_len, short msg_id);
 
@@ -39,6 +38,8 @@ private:
 };
 
 class SendNode : public MsgNode {
+    friend class LogicSystem;
+
 public:
     SendNode(const char* msg, short max_len, short msg_id);
 

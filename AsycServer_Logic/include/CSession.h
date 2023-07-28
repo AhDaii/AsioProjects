@@ -18,6 +18,7 @@
 using boost::asio::ip::tcp;
 
 class CServer;
+class LogicSystem;
 class CSession : public std::enable_shared_from_this<CSession> {
 public:
     CSession(boost::asio::io_context& ioc, CServer* server);
@@ -72,4 +73,15 @@ private:
     std::shared_ptr<MsgNode> _recv_head_node;
 };
 
+class LogicNode {
+    friend class LogicSystem;
+
+public:
+    LogicNode(shared_ptr<CSession> session, shared_ptr<RecvNode> recvnode)
+        : _session(session), _recvnode(recvnode) {}
+
+private:
+    shared_ptr<CSession> _session;
+    shared_ptr<RecvNode> _recvnode;
+};
 #endif  // ASYCSERVER_CSession_H
