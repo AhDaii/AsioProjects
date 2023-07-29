@@ -22,3 +22,5 @@
   - [服务端](https://github.com/AhDaii/AsioProject/tree/master/AsycServer_Logic)
   - [客户端](https://github.com/AhDaii/AsioProject/tree/master/SyncClient_JsonCPP_v2)
 - [服务端添加逻辑层](https://github.com/AhDaii/AsioProject/tree/master/AsycServer_Logic)
+- 实现并行处理
+  - 方法1: [多个线程，每个线程管理一个io_context](https://github.com/AhDaii/AsioProject/tree/master/AsycServer_IOServicePool)
