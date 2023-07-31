@@ -6,7 +6,6 @@
 #define ASYCSERVER_CSession_H
 
 #include "MsgNode.h"
-#include "boost/asio/strand.hpp"
 #include "const.h"
 #include <boost/asio.hpp>
 #include <boost/uuid/uuid_generators.hpp>
@@ -45,14 +44,6 @@ private:
                     size_t bytes_transferred,
                     std::shared_ptr<CSession> _self_shared);
 
-    void HandleReadHead(const boost::system::error_code& ec,
-                        size_t bytes_transferred,
-                        std::shared_ptr<CSession> _self_shared);
-
-    void HandleReadMsg(const boost::system::error_code& ec,
-                       size_t bytes_transferred,
-                       std::shared_ptr<CSession> _self_shared);
-
     void HandleWrite(const boost::system::error_code& ec,
                      std::shared_ptr<CSession> _self_shared);
 
@@ -66,11 +57,9 @@ private:
     std::queue<std::shared_ptr<MsgNode>> _send_que;
     std::mutex _send_lock;
     bool _b_close;
-    // 控制消息串行处理
-    boost::asio::strand<boost::asio::io_context::executor_type> _strand;
 
     // 接收到的消息结构
-    std::shared_ptr<MsgNode> _recv_msg_node;
+    std::shared_ptr<RecvNode> _recv_msg_node;
     bool _b_head_parse;
     // 接收到的头部结构
     std::shared_ptr<MsgNode> _recv_head_node;

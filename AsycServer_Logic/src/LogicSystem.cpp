@@ -7,7 +7,7 @@
 #include <thread>
 
 LogicSystem::~LogicSystem() {
-    _b_stop = false;
+    _b_stop = true;
     _consume.notify_one();
     _worker_thread.join();
 }
@@ -30,7 +30,7 @@ void LogicSystem::DealMsg() {
     while (true) {
         std::unique_lock<mutex> lock(_mutex);
         // 队列空则等待
-        while (!_msg_que.empty() && !_b_stop) {
+        while (_msg_que.empty() && !_b_stop) {
             _consume.wait(lock);
         }
 
@@ -38,7 +38,7 @@ void LogicSystem::DealMsg() {
         if (_b_stop) {
             while (!_msg_que.empty()) {
                 auto msg_node = _msg_que.front();
-                cout << "Received msg id is " << msg_node->_recvnode->_msg_id << endl;
+                // cout << "Received msg id is " << msg_node->_recvnode->_msg_id << endl;
                 auto callback_iter = _fun_callbacks.find(msg_node->_recvnode->_msg_id);
                 if (callback_iter == _fun_callbacks.end()) {
                     _msg_que.pop();
@@ -52,7 +52,7 @@ void LogicSystem::DealMsg() {
         }
         // 没有关闭，且有数据
         auto msg_node = _msg_que.front();
-        cout << "Received msg id is " << msg_node->_recvnode->_msg_id << endl;
+        // cout << "Received msg id is " << msg_node->_recvnode->_msg_id << endl;
         auto callback_iter = _fun_callbacks.find(msg_node->_recvnode->_msg_id);
         if (callback_iter == _fun_callbacks.end()) {
             _msg_que.pop();

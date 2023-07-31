@@ -44,14 +44,6 @@ private:
                     size_t bytes_transferred,
                     std::shared_ptr<CSession> _self_shared);
 
-    void HandleReadHead(const boost::system::error_code& ec,
-                        size_t bytes_transferred,
-                        std::shared_ptr<CSession> _self_shared);
-
-    void HandleReadMsg(const boost::system::error_code& ec,
-                       size_t bytes_transferred,
-                       std::shared_ptr<CSession> _self_shared);
-
     void HandleWrite(const boost::system::error_code& ec,
                      std::shared_ptr<CSession> _self_shared);
 
@@ -67,7 +59,7 @@ private:
     bool _b_close;
 
     // 接收到的消息结构
-    std::shared_ptr<MsgNode> _recv_msg_node;
+    std::shared_ptr<RecvNode> _recv_msg_node;
     bool _b_head_parse;
     // 接收到的头部结构
     std::shared_ptr<MsgNode> _recv_head_node;
