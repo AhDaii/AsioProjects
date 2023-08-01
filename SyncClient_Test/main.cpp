@@ -30,7 +30,7 @@ int main() {
           return 0;
         }
         int i = 0;
-        while (i < 50) {
+        while (i < 5) {
           Json::Value root;
           root["id"] = 1001;
           root["data"] = "hello world";
