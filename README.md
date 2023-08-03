@@ -27,3 +27,4 @@
   - 方法2: [多个线程，每个线程管理同一个io_context](https://github.com/AhDaii/AsioProject/tree/master/AsycServer_IOThreadPool)
   - [性能测试客户端](https://github.com/AhDaii/AsioProject/tree/master/SyncClient_Test)
 - [协程实现的服务端](https://github.com/AhDaii/AsioProject/tree/master/AsycServer_Coroutine)
+- [简易HTTP服务器](https://github.com/AhDaii/AsioProject/tree/master/BeastServer_HTTP)
